@@ -19,6 +19,32 @@
     });
   })();
 
+  /* ── LIGHTBOX ── */
+  (function lightbox() {
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    if (!lb || !lbImg) return;
+    document.querySelectorAll('.cert-card').forEach(card => {
+      card.addEventListener('click', () => {
+        lbImg.src = card.dataset.src;
+        lb.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    lb.addEventListener('click', e => {
+      if (e.target === lb || e.target.classList.contains('lightbox-close')) {
+        lb.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lb.classList.contains('show')) {
+        lb.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+    });
+  })();
+
   /* ── TYPED ── */
   const typedEl = document.getElementById('typed-tag');
   if (typedEl && window.Typed) {
