@@ -1,6 +1,23 @@
-/* main.js — index page: Typed.js · contadores · carrossel · reveal · nav */
+/* main.js — index page: Typed.js · contadores · carrossel · reveal · nav · cursor */
 (function () {
   'use strict';
+
+  /* ── CURSOR ── */
+  (function cursor() {
+    const dot = document.getElementById('cdot');
+    const ring = document.getElementById('cring');
+    if (!dot || !ring) return;
+    document.addEventListener('mousemove', e => {
+      dot.style.left = e.clientX + 'px';
+      dot.style.top = e.clientY + 'px';
+      ring.style.left = e.clientX + 'px';
+      ring.style.top = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, .btn, .cb, .skill-item, .tech-badge').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+    });
+  })();
 
   /* ── TYPED ── */
   const typedEl = document.getElementById('typed-tag');
