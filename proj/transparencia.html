@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Transparência Bot — Gustavo Saud</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="../css/page.css"/>
+</head>
+<body>
+  <div id="progress"></div>
+  <div class="bg-glow"><div class="glow-c"></div><div class="glow-tr"></div><div class="glow-bl"></div></div>
+  <div class="cur-dot" id="cdot"></div><div class="cur-ring" id="cring"></div>
+  <nav class="nav-inner">
+    <a href="../index.html#projects" class="nav-back">← projetos</a>
+    <a href="../index.html" class="logo"><span>~/</span>gustavo-saud</a>
+    <span class="nav-section-tag">projeto</span>
+  </nav>
+
+  <div class="inner-hero reveal">
+    <div class="inner-badge">DESAFIO TÉCNICO · RPA</div>
+    <h1 class="inner-title">Transparência Bot</h1>
+    <div class="inner-meta">
+      <span>BOT DE AUTOMAÇÃO WEB · PORTAL DA TRANSPARÊNCIA GOV.BR</span>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="page-sec reveal">
+      <div class="page-sec-label">// sobre o projeto</div>
+      <p class="page-text">Bot de automação web (RPA) para consulta de pessoas físicas no Portal da Transparência do Governo Federal. Desenvolvido como desafio técnico para vaga de Full Stack Developer Python. Realiza consultas automatizadas, extrai dados de benefícios e retorna evidência em Base64.</p>
+    </div>
+    <div class="page-sec reveal">
+      <div class="page-sec-label">// funcionalidades</div>
+      <ul class="page-list">
+        <li>Bypass de WAF AWS CloudFront com Chromium headless + anti-detecção via add_init_script</li>
+        <li>Navegação por DOM assíncrono usando aria-controls para localizar accordion de benefícios</li>
+        <li>Captura de evidência em Base64 com accordion expandido e banner LGPD removido</li>
+        <li>API REST com FastAPI e documentação Swagger automática</li>
+        <li>Suporte a busca por nome, CPF e NIS com detecção automática do tipo de identificador</li>
+        <li>Orquestração completa via n8n: Webhook → API → Google Drive → Google Sheets</li>
+        <li>Containerização com Docker Compose — bot API (8001) + n8n (5678)</li>
+        <li>Tratamento de erros específicos por tipo de identificador e timeout do portal</li>
+      </ul>
+    </div>
+    <div class="page-sec reveal">
+      <div class="page-sec-label">// stack técnico</div>
+      <div class="page-stack">
+        <span class="page-stag"><i class="devicon-python-plain colored"></i>Python 3.12</span>
+        <span class="page-stag"><i class="devicon-fastapi-plain colored"></i>FastAPI</span>
+        <span class="page-stag">Playwright</span>
+        <span class="page-stag"><i class="devicon-docker-plain colored"></i>Docker</span>
+        <span class="page-stag">n8n</span>
+        <span class="page-stag"><i class="devicon-google-plain colored"></i>Google Drive API</span>
+        <span class="page-stag"><i class="devicon-google-plain colored"></i>Google Sheets API</span>
+      </div>
+    </div>
+
+    <div class="page-sec reveal">
+      <div class="page-sec-label">// links</div>
+      <div class="page-links">
+        <a href="https://github.com/robacenadev/transparencia-bot" target="_blank" class="page-link secondary"><i class="devicon-github-original" style="font-size:15px"></i> ver no GitHub</a>
+        <a href="../index.html#projects" class="page-link secondary">← ver todos os projetos</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p><span class="g">gustavo@saud</span>:~$</p>
+    <p>Contagem, MG · Backend Dev · DevOps · 2025</p>
+  </footer>
+  <script src="../js/background.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

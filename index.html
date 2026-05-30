@@ -4,51 +4,19 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gustavo Saud — Backend Dev & DevOps</title>
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-
-  <!-- Devicons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css"/>
-
-  <!-- Estilos -->
   <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
 
-  <!-- Barra de progresso de scroll -->
   <div id="progress"></div>
-
-  <!-- Fundo animado (CSS puro — editável em style.css) -->
-  <div class="bg-glow">
-    <div class="glow-c"></div>
-    <div class="glow-tr"></div>
-    <div class="glow-bl"></div>
-  </div>
-
-  <!-- Cursor customizado -->
-  <div class="cur-dot"  id="cdot"></div>
+  <div class="bg-glow"><div class="glow-c"></div><div class="glow-tr"></div><div class="glow-bl"></div></div>
+  <div class="cur-dot" id="cdot"></div>
   <div class="cur-ring" id="cring"></div>
 
-  <!-- ══════════════════════════════════
-       MODAL (compartilhado por projetos
-       e experiências)
-  ══════════════════════════════════ -->
-  <div class="modal-overlay" id="mo">
-    <div class="modal">
-      <div class="modal-header">
-        <div id="mhc"></div>
-        <button class="modal-close" id="mcl">✕</button>
-      </div>
-      <div class="modal-body" id="mb"></div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════
-       NAV
-  ══════════════════════════════════ -->
   <nav>
-    <div class="logo"><span>~/</span>gustavo-saud</div>
+    <a href="#" class="logo"><span>~/</span>gustavo-saud</a>
     <ul class="nav-links">
       <li><a href="#projects">projetos</a></li>
       <li><a href="#experience">experiência</a></li>
@@ -57,10 +25,10 @@
     </ul>
   </nav>
 
-  <!-- ══════════════════════════════════
-       HERO
-  ══════════════════════════════════ -->
+  <!-- ══ HERO ══ -->
   <section id="hero">
+
+    <!-- ESQUERDA: nome + role + descrição -->
     <div class="hero-left">
       <div class="hero-tag reveal-left">
         — <span id="typed-tag" class="hero-typed"></span>
@@ -74,130 +42,85 @@
         Construo APIs com Django, automatizo pipelines com Docker
         e tenho 2 sistemas em produção.
       </p>
-      <div class="hero-btns reveal-left" style="transition-delay:.2s">
-        <a href="#projects" class="btn btn-p">ver projetos</a>
-        <a href="#contact"  class="btn btn-g">contato</a>
-        <a href="cv.pdf" download class="btn btn-cv">↓ download cv</a>
+    </div>
+
+    <!-- CENTRO: foto -->
+    <div class="hero-center reveal" style="transition-delay:.1s">
+      <!-- ⚠️ Substitua pelo link direto da sua foto (i.ibb.co/...) -->
+      <img class="hero-photo" src="COLOQUE_SEU_LINK_AQUI" alt="Gustavo Saud"/>
+    </div>
+
+    <!-- DIREITA: botões + stats -->
+    <div class="hero-right reveal" style="transition-delay:.15s">
+      <a href="#projects"  class="btn btn-p">ver projetos</a>
+      <a href="#contact"   class="btn btn-g">contato</a>
+      <a href="cv.pdf" download class="btn btn-cv">↓ download cv</a>
+
+      <div class="hero-stats">
+        <div class="hcard">
+          <div class="hcard-label">// experiência</div>
+          <div class="hcard-val" data-target="2" data-suffix="+">0+</div>
+          <div class="hcard-sub">anos em TI</div>
+        </div>
+        <div class="hcard">
+          <div class="hcard-label">// produção</div>
+          <div class="hcard-val" data-target="2" data-suffix="">0</div>
+          <div class="hcard-sub">projetos ativos</div>
+        </div>
+        <div class="hcard">
+          <div class="hcard-label">// status</div>
+          <div class="hcard-sub" style="margin-top:8px;font-size:12px;">
+            <span class="sdot"></span>disponível
+          </div>
+        </div>
+        <div class="hcard">
+          <div class="hcard-label">// clouds</div>
+          <div class="hcard-val" data-target="3" data-suffix="">0</div>
+          <div class="hcard-sub">AWS · Azure · Huawei</div>
+        </div>
       </div>
     </div>
 
-    <div class="hero-right">
-      <div class="hcard reveal" style="transition-delay:.10s">
-        <div class="hcard-label">// Experiência</div>
-        <div class="hcard-val" data-target="2" data-suffix="+">0+</div>
-        <div class="hcard-sub">anos em tecnologia</div>
-      </div>
-      <div class="hcard reveal" style="transition-delay:.15s">
-        <div class="hcard-label">// Em produção</div>
-        <div class="hcard-val" data-target="2" data-suffix="">0</div>
-        <div class="hcard-sub">projetos ativos</div>
-      </div>
-      <div class="hcard reveal" style="transition-delay:.20s">
-        <div class="hcard-label">// Status</div>
-        <div class="hcard-sub" style="margin-top:8px;font-size:13px;">
-          <span class="sdot"></span>Aberto a oportunidades
-        </div>
-      </div>
-      <div class="hcard reveal" style="transition-delay:.25s">
-        <div class="hcard-label">// Clouds</div>
-        <div class="hcard-val" data-target="3" data-suffix="">0</div>
-        <div class="hcard-sub">AWS · Azure · Huawei</div>
-      </div>
-      <div class="hcard reveal" style="padding:0;overflow:hidden;border-radius:8px;transition-delay:.30s">
-        <img
-          src="https://i.ibb.co/qMgWtKKs/Whats-App-Image-2026-05-28-at-22-35-43.jpg"
-          alt="Gustavo Saud"
-          style="width:100%;height:100%;min-height:158px;object-fit:cover;object-position:center top;display:block;filter:grayscale(20%) contrast(1.05);"
-        />
-      </div>
-      <div class="hcard reveal" style="transition-delay:.35s">
-        <div class="hcard-label">// Stack</div>
-        <div class="tech-list">
-          <span class="tech on">Python</span>
-          <span class="tech on">Django</span>
-          <span class="tech on">Docker</span>
-          <span class="tech">Linux</span>
-          <span class="tech">Zabbix</span>
-          <span class="tech">n8n</span>
-        </div>
+    <!-- BOTTOM: tech strip -->
+    <div class="hero-bottom reveal" style="transition-delay:.2s">
+      <div class="hero-tech-strip">
+        <span class="tech-strip-label">// stack</span>
+        <span class="tech-badge on"><i class="devicon-python-plain colored"></i>Python</span>
+        <span class="tech-badge on"><i class="devicon-django-plain"></i>Django</span>
+        <span class="tech-badge on"><i class="devicon-docker-plain colored"></i>Docker</span>
+        <span class="tech-badge"><i class="devicon-linux-plain colored"></i>Linux</span>
+        <span class="tech-badge"><i class="devicon-postgresql-plain colored"></i>PostgreSQL</span>
+        <span class="tech-badge"><i class="devicon-fastapi-plain colored"></i>FastAPI</span>
+        <span class="tech-badge"><i class="devicon-bash-plain colored"></i>Bash</span>
+        <span class="tech-badge"><i class="devicon-amazonwebservices-plain colored"></i>AWS</span>
+        <span class="tech-badge"><i class="devicon-azure-plain colored"></i>Azure</span>
+        <span class="tech-badge">Zabbix</span>
+        <span class="tech-badge">n8n</span>
+        <span class="tech-badge">Traefik</span>
       </div>
     </div>
+
   </section>
 
-  <!-- ══════════════════════════════════
-       PROJETOS
-  ══════════════════════════════════ -->
+  <!-- ══ PROJETOS (CARROSSEL) ══ -->
   <section class="bsec" id="projects">
     <div class="sec-label">// projetos</div>
-    <div class="proj-bento">
-
-      <div class="cb pcard reveal" onclick="openM('proj','growth')">
-        <div class="pcard-badge"><span class="sdot" style="width:5px;height:5px;"></span>EM PRODUÇÃO</div>
-        <div class="pcard-num">01</div>
-        <div class="pcard-name">Growth Ocean — CRM & ERP</div>
-        <div class="pcard-desc">Sistema completo de gestão para agência de marketing digital. Do funil de captação até a entrega, tudo em uma plataforma.</div>
-        <div class="pcard-stack">
-          <span class="stag"><i class="devicon-django-plain"></i>Django 5.1</span>
-          <span class="stag"><i class="devicon-postgresql-plain"></i>PostgreSQL</span>
-          <span class="stag"><i class="devicon-docker-plain"></i>Docker</span>
-          <span class="stag">Railway</span>
-          <span class="stag">Asaas</span>
-        </div>
-        <div class="pcard-hint">clique para ver detalhes →</div>
-      </div>
-
-      <div class="cb pcard reveal" style="transition-delay:.05s" onclick="openM('proj','billing')">
-        <div class="pcard-badge"><span class="sdot" style="width:5px;height:5px;"></span>EM PRODUÇÃO</div>
-        <div class="pcard-num">02</div>
-        <div class="pcard-name">Plataforma Multi-Cloud Billing</div>
-        <div class="pcard-desc">Gestão centralizada de custos AWS, Azure e Huawei para empresa de cibersegurança e infraestrutura.</div>
-        <div class="pcard-stack">
-          <span class="stag"><i class="devicon-python-plain"></i>Python</span>
-          <span class="stag"><i class="devicon-django-plain"></i>Django</span>
-          <span class="stag"><i class="devicon-docker-plain"></i>Docker Swarm</span>
-          <span class="stag">n8n</span>
-        </div>
-        <div class="pcard-hint">clique para ver detalhes →</div>
-      </div>
-
-      <div class="cb pcard reveal" style="transition-delay:.10s" onclick="openM('proj','homelab')">
-        <div class="pcard-num">03</div>
-        <div class="pcard-name">Saud Homelab</div>
-        <div class="pcard-desc">Ambiente pessoal de monitoramento com Zabbix e alertas automáticos via Telegram Bot API.</div>
-        <div class="pcard-stack">
-          <span class="stag">Zabbix</span>
-          <span class="stag"><i class="devicon-python-plain"></i>Python</span>
-          <span class="stag"><i class="devicon-ubuntu-plain"></i>Ubuntu Server</span>
-          <span class="stag"><i class="devicon-docker-plain"></i>Docker</span>
-        </div>
-        <div class="pcard-hint">clique para ver detalhes →</div>
-      </div>
-
-      <div class="cb pcard reveal" style="transition-delay:.15s" onclick="openM('proj','transparencia')">
-        <div class="pcard-num">04</div>
-        <div class="pcard-name">Transparência Bot</div>
-        <div class="pcard-desc">Bot RPA para consulta no Portal da Transparência com bypass de WAF e evidência em Base64.</div>
-        <div class="pcard-stack">
-          <span class="stag"><i class="devicon-python-plain"></i>Python</span>
-          <span class="stag"><i class="devicon-fastapi-plain"></i>FastAPI</span>
-          <span class="stag">Playwright</span>
-          <span class="stag"><i class="devicon-docker-plain"></i>Docker</span>
-          <span class="stag">n8n</span>
-        </div>
-        <div class="pcard-hint">clique para ver detalhes →</div>
-      </div>
-
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="carousel-track" style="transform-style:preserve-3d;"></div>
+    </div>
+    <div class="carousel-nav">
+      <button class="carousel-btn" id="carousel-prev">‹</button>
+      <div class="carousel-dots" id="carousel-dots"></div>
+      <button class="carousel-btn" id="carousel-next">›</button>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-       EXPERIÊNCIA
-  ══════════════════════════════════ -->
+  <!-- ══ EXPERIÊNCIA ══ -->
   <section class="bsec" id="experience">
     <div class="sec-label">// experiência</div>
     <div class="exp-bento">
 
-      <div class="cb ecard reveal" onclick="openM('exp','noc')">
+      <a href="exp/prolinx-noc.html" class="cb ecard reveal">
         <div class="ecard-period">Out/2025 – Atual <span class="ecard-now">● ATUAL</span></div>
         <div class="ecard-co">Prolinx</div>
         <div class="ecard-role">Analista de Monitoramento Jr. (NOC)</div>
@@ -206,10 +129,10 @@
           <li>Resposta a incidentes · Linux</li>
           <li>VMware · Hyper-V · Service Desk</li>
         </ul>
-        <div class="ecard-hint">clique para ver detalhes →</div>
-      </div>
+        <div class="ecard-hint">ver detalhes →</div>
+      </a>
 
-      <div class="cb ecard reveal" style="transition-delay:.05s" onclick="openM('exp','suporte_prolinx')">
+      <a href="exp/prolinx-suporte.html" class="cb ecard reveal" style="transition-delay:.05s">
         <div class="ecard-period">Dez/2024 – Out/2025</div>
         <div class="ecard-co">Prolinx</div>
         <div class="ecard-role">Assistente de Suporte Técnico</div>
@@ -217,10 +140,10 @@
           <li>Suporte remoto · Windows · M365</li>
           <li>Sophos · pfSense · VPN</li>
         </ul>
-        <div class="ecard-hint">clique para ver detalhes →</div>
-      </div>
+        <div class="ecard-hint">ver detalhes →</div>
+      </a>
 
-      <div class="cb ecard reveal" style="transition-delay:.10s" onclick="openM('exp','siematec')">
+      <a href="exp/siematec.html" class="cb ecard reveal" style="transition-delay:.1s">
         <div class="ecard-period">Jun/2024 – Nov/2024</div>
         <div class="ecard-co">Siematec Informática</div>
         <div class="ecard-role">Analista de Suporte</div>
@@ -228,10 +151,10 @@
           <li>Suporte ERP especializado</li>
           <li>Análise SQL · Scripts corretivos</li>
         </ul>
-        <div class="ecard-hint">clique para ver detalhes →</div>
-      </div>
+        <div class="ecard-hint">ver detalhes →</div>
+      </a>
 
-      <div class="cb ecard reveal" style="transition-delay:.15s" onclick="openM('exp','space_telecom')">
+      <a href="exp/space-telecom.html" class="cb ecard reveal" style="transition-delay:.15s">
         <div class="ecard-period">Out/2023 – Jul/2024</div>
         <div class="ecard-co">Space Telecom</div>
         <div class="ecard-role">Técnico de Suporte</div>
@@ -239,19 +162,16 @@
           <li>Config de roteadores · ONU · ONT</li>
           <li>Monitoramento e análise de rede</li>
         </ul>
-        <div class="ecard-hint">clique para ver detalhes →</div>
-      </div>
+        <div class="ecard-hint">ver detalhes →</div>
+      </a>
 
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-       SKILLS
-  ══════════════════════════════════ -->
+  <!-- ══ SKILLS ══ -->
   <section class="bsec" id="skills">
     <div class="sec-label">// stack técnico</div>
     <div class="skills-grid">
-
       <div class="cb scard reveal">
         <div class="scard-title">// backend</div>
         <div class="skill-items">
@@ -262,7 +182,6 @@
           <div class="skill-item"><i class="devicon-fastapi-plain colored"></i>FastAPI</div>
         </div>
       </div>
-
       <div class="cb scard reveal" style="transition-delay:.05s">
         <div class="scard-title">// devops</div>
         <div class="skill-items">
@@ -274,8 +193,7 @@
           <div class="skill-item">n8n</div>
         </div>
       </div>
-
-      <div class="cb scard reveal" style="transition-delay:.10s">
+      <div class="cb scard reveal" style="transition-delay:.1s">
         <div class="scard-title">// cloud & infra</div>
         <div class="skill-items">
           <div class="skill-item"><i class="devicon-amazonwebservices-plain colored"></i>AWS</div>
@@ -285,7 +203,6 @@
           <div class="skill-item">Hyper-V</div>
         </div>
       </div>
-
       <div class="cb scard reveal" style="transition-delay:.15s">
         <div class="scard-title">// banco de dados</div>
         <div class="skill-items">
@@ -294,8 +211,7 @@
           <div class="skill-item"><i class="devicon-microsoftsqlserver-plain colored"></i>SQL Server</div>
         </div>
       </div>
-
-      <div class="cb scard reveal" style="transition-delay:.20s">
+      <div class="cb scard reveal" style="transition-delay:.2s">
         <div class="scard-title">// monitoramento</div>
         <div class="skill-items">
           <div class="skill-item hot">Zabbix</div>
@@ -303,7 +219,6 @@
           <div class="skill-item"><i class="devicon-telegram-plain colored"></i>Telegram Bot</div>
         </div>
       </div>
-
       <div class="cb scard reveal" style="transition-delay:.25s">
         <div class="scard-title">// redes & seg.</div>
         <div class="skill-items">
@@ -313,91 +228,35 @@
           <div class="skill-item">Firewall</div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-       CONTATO
-  ══════════════════════════════════ -->
+  <!-- ══ CONTATO ══ -->
   <section class="bsec" id="contact">
     <div class="sec-label">// contato</div>
     <div class="contact-bento">
-
       <div class="term-card reveal">
-        <div class="term-bar">
-          <div class="dot dr"></div>
-          <div class="dot dy"></div>
-          <div class="dot dg"></div>
-        </div>
+        <div class="term-bar"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div>
         <div class="term-body">
-          <div class="term-col">
-            <span><span class="ps">❯</span> whoami</span>
-            <span class="vl">Gustavo Saud</span>
-            <span>&nbsp;</span>
-            <span><span class="ps">❯</span> cat local.txt</span>
-            <span class="vl">Contagem, MG</span>
-          </div>
-          <div class="term-col">
-            <span><span class="ps">❯</span> cat status.txt</span>
-            <span class="vl">disponível</span>
-            <span>&nbsp;</span>
-            <span><span class="ps">❯</span> <span class="blink">_</span></span>
-          </div>
+          <div class="term-col"><span><span class="ps">❯</span> whoami</span><span class="vl">Gustavo Saud</span><span>&nbsp;</span><span><span class="ps">❯</span> cat local.txt</span><span class="vl">Contagem, MG</span></div>
+          <div class="term-col"><span><span class="ps">❯</span> cat status.txt</span><span class="vl">disponível</span><span>&nbsp;</span><span><span class="ps">❯</span> <span class="blink">_</span></span></div>
         </div>
       </div>
-
-      <a href="mailto:gusaud@hotmail.com" class="cb ccard reveal">
-        <div class="ccard-label">// email</div>
-        <div class="ccard-val">gusaud@hotmail.com</div>
-        <div class="ccard-arrow">→</div>
-      </a>
-
-      <a href="https://linkedin.com/in/gustavosaud" target="_blank" class="cb ccard reveal" style="transition-delay:.05s">
-        <div class="ccard-label">// linkedin</div>
-        <div class="ccard-val">linkedin.com/in/gustavosaud</div>
-        <div class="ccard-arrow">→</div>
-      </a>
-
-      <a href="https://github.com/robacenadev" target="_blank" class="cb ccard reveal" style="transition-delay:.10s">
-        <div class="ccard-label">// github</div>
-        <div class="ccard-val">
-          <i class="devicon-github-original" style="font-size:15px;margin-right:4px;vertical-align:middle;"></i>
-          robacenadev
-        </div>
-        <div class="ccard-arrow">→</div>
-      </a>
-
-      <a href="tel:+5531992109113" class="cb ccard reveal" style="transition-delay:.15s">
-        <div class="ccard-label">// telefone</div>
-        <div class="ccard-val">(31) 99210-9113</div>
-        <div class="ccard-arrow">→</div>
-      </a>
-
-      <div class="cb ccard reveal" style="transition-delay:.20s;border-color:rgba(0,230,118,.1);">
-        <div class="ccard-label">// certificações</div>
-        <div style="margin-top:auto;font-size:10px;color:#333;line-height:2;">
-          Sophos FW Engineer<br>
-          Sophos Endpoint Eng.<br>
-          ADS — Estácio
-        </div>
-      </div>
-
+      <a href="mailto:gusaud@hotmail.com" class="cb ccard reveal"><div class="ccard-label">// email</div><div class="ccard-val">gusaud@hotmail.com</div><div class="ccard-arrow">→</div></a>
+      <a href="https://linkedin.com/in/gustavosaud" target="_blank" class="cb ccard reveal" style="transition-delay:.05s"><div class="ccard-label">// linkedin</div><div class="ccard-val">linkedin.com/in/gustavosaud</div><div class="ccard-arrow">→</div></a>
+      <a href="https://github.com/robacenadev" target="_blank" class="cb ccard reveal" style="transition-delay:.1s"><div class="ccard-label">// github</div><div class="ccard-val"><i class="devicon-github-original" style="font-size:14px;margin-right:4px;vertical-align:middle;"></i>robacenadev</div><div class="ccard-arrow">→</div></a>
+      <a href="tel:+5531992109113" class="cb ccard reveal" style="transition-delay:.15s"><div class="ccard-label">// telefone</div><div class="ccard-val">(31) 99210-9113</div><div class="ccard-arrow">→</div></a>
+      <div class="cb ccard reveal" style="transition-delay:.2s;border-color:rgba(0,230,118,.1);"><div class="ccard-label">// certificações</div><div style="margin-top:auto;font-size:10px;color:#2a2a2a;line-height:2;">Sophos FW Engineer<br>Sophos Endpoint Eng.<br>ADS — Estácio</div></div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-       FOOTER
-  ══════════════════════════════════ -->
   <footer>
     <p><span class="g">gustavo@saud</span>:~$</p>
     <p>Contagem, MG · Backend Dev · DevOps · 2025</p>
   </footer>
 
-  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.16/typed.umd.js"></script>
   <script src="js/background.js"></script>
   <script src="js/main.js"></script>
-
 </body>
 </html>

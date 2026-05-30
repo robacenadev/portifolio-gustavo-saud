@@ -1,60 +1,130 @@
-/* ── background.js ──
-   Responsável pelo cursor customizado e pela barra de progresso de scroll.
-   O fundo (glow breathing) é feito puramente em CSS no style.css.
-─────────────────────────────────────────── */
-
+/* main.js — index page: Typed.js · contadores · carrossel · reveal · nav */
 (function () {
   'use strict';
 
-  /* ── SCROLL PROGRESS BAR ── */
-  const progress = document.getElementById('progress');
-
-  window.addEventListener('scroll', () => {
-    const scrolled = document.documentElement.scrollTop;
-    const total = document.documentElement.scrollHeight - window.innerHeight;
-    progress.style.width = ((scrolled / total) * 100) + '%';
-  });
-
-  /* ── CUSTOM CURSOR ── */
-  const dot  = document.getElementById('cdot');
-  const ring = document.getElementById('cring');
-
-  let mouseX = -200, mouseY = -200;
-  let ringX  = -200, ringY  = -200;
-
-  // Atualiza posição do mouse
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  // Efeito de clique
-  document.addEventListener('mousedown', () => {
-    dot.style.transform = 'translate(-50%,-50%) scale(0.4)';
-  });
-  document.addEventListener('mouseup', () => {
-    dot.style.transform = 'translate(-50%,-50%)';
-  });
-
-  // Hover em elementos interativos — expande o anel
-  document.querySelectorAll('a, button, .cb').forEach((el) => {
-    el.addEventListener('mouseenter', () => ring.classList.add('hover'));
-    el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
-  });
-
-  // Loop de animação — dot snapeia, ring segue com lag
-  function animateCursor() {
-    dot.style.left = mouseX + 'px';
-    dot.style.top  = mouseY + 'px';
-
-    ringX += (mouseX - ringX) * 0.12;
-    ringY += (mouseY - ringY) * 0.12;
-
-    ring.style.left = ringX + 'px';
-    ring.style.top  = ringY + 'px';
-
-    requestAnimationFrame(animateCursor);
+  /* ── TYPED ── */
+  const typedEl = document.getElementById('typed-tag');
+  if (typedEl && window.Typed) {
+    new Typed('#typed-tag', {
+      strings: ['Backend Dev', 'DevOps', 'NOC Analyst', 'Django Dev', 'Docker Lover'],
+      typeSpeed: 70, backSpeed: 35, backDelay: 1800, loop: true,
+    });
   }
 
-  animateCursor();
+  /* ── COUNTER ── */
+  function countUp(el) {
+    const target = parseFloat(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const dur = 1400, t0 = Date.now();
+    (function tick() {
+      const p = Math.min((Date.now() - t0) / dur, 1);
+      const e = 1 - Math.pow(1 - p, 3);
+      el.textContent = (p < 1 ? Math.floor(target * e) : target) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    })();
+  }
+
+  /* ── SCROLL REVEAL ── */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const d = parseFloat(e.target.style.transitionDelay || 0) * 1000;
+      setTimeout(() => {
+        e.target.classList.add('vis');
+        e.target.querySelectorAll('[data-target]').forEach(countUp);
+      }, d);
+      obs.unobserve(e.target);
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal, .reveal-left').forEach(el => obs.observe(el));
+
+  setTimeout(() => {
+    document.querySelectorAll('#hero .reveal, #hero .reveal-left').forEach(el => {
+      const d = parseFloat(el.style.transitionDelay || 0) * 1000;
+      setTimeout(() => {
+        el.classList.add('vis');
+        el.querySelectorAll('[data-target]').forEach(countUp);
+      }, d);
+    });
+  }, 120);
+
+  /* ── NAV ACTIVE ── */
+  document.querySelectorAll('section[id]').forEach(section => {
+    new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) return;
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+      const l = document.querySelector(`.nav-links a[href="#${section.id}"]`);
+      if (l) l.classList.add('active');
+    }, { threshold: 0.35 }).observe(section);
+  });
+
+  /* ── CAROUSEL ── */
+  const PROJECTS = [
+    { num:'01', badge:'EM PRODUÇÃO', name:'Growth Ocean — CRM & ERP',        desc:'Sistema completo de gestão para agência de marketing digital.', url:'proj/growth-ocean.html' },
+    { num:'02', badge:'EM PRODUÇÃO', name:'Multi-Cloud Billing',              desc:'Gestão centralizada de custos AWS, Azure e Huawei Cloud.',       url:'proj/billing.html' },
+    { num:'03', badge:'PROJETO PESSOAL', name:'Saud Homelab',                 desc:'Monitoramento com Zabbix e alertas via Telegram Bot API.',       url:'proj/homelab.html' },
+    { num:'04', badge:'DESAFIO TÉCNICO', name:'Transparência Bot',            desc:'Bot RPA para consulta no Portal da Transparência Gov.BR.',       url:'proj/transparencia.html' },
+  ];
+
+  const track = document.getElementById('carousel-track');
+  const dotsEl = document.getElementById('carousel-dots');
+  if (!track) return;
+
+  let current = 0, paused = false;
+
+  PROJECTS.forEach((p, i) => {
+    const slide = document.createElement('a');
+    slide.className = 'proj-slide';
+    slide.href = p.url;
+    slide.innerHTML = `
+      <div class="slide-num">${p.num}</div>
+      <div class="slide-badge">${p.badge}</div>
+      <div class="slide-name">${p.name}</div>
+      <div class="slide-desc">${p.desc}</div>
+      <div class="slide-hint">ver projeto →</div>`;
+    slide.addEventListener('mouseenter', () => paused = true);
+    slide.addEventListener('mouseleave', () => paused = false);
+    track.appendChild(slide);
+
+    const dot = document.createElement('div');
+    dot.className = 'cdot';
+    dotsEl.appendChild(dot);
+  });
+
+  const slides = [...track.children];
+  const dots   = [...dotsEl.children];
+
+  function render() {
+    const n = PROJECTS.length;
+    const stageW = track.parentElement.offsetWidth;
+    slides.forEach((s, i) => {
+      let pos = i - current;
+      if (pos > n / 2)  pos -= n;
+      if (pos < -n / 2) pos += n;
+      const abs = Math.abs(pos);
+      const x     = pos * (stageW * 0.3);
+      const scale = pos === 0 ? 1 : abs === 1 ? 0.72 : 0.48;
+      const z     = pos === 0 ? 0 : abs === 1 ? -80 : -160;
+      const op    = pos === 0 ? 1 : abs === 1 ? 0.45 : 0.18;
+      s.style.transform       = `translate(calc(-50% + ${x}px), -50%) scale(${scale}) translateZ(${z}px)`;
+      s.style.opacity         = op;
+      s.style.zIndex          = 10 - abs;
+      s.style.pointerEvents   = pos === 0 ? 'auto' : 'none';
+      s.style.borderColor     = pos === 0 ? 'rgba(0,230,118,0.3)' : 'var(--border)';
+    });
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  function next() { current = (current + 1) % PROJECTS.length; render(); }
+  function prev() { current = (current - 1 + PROJECTS.length) % PROJECTS.length; render(); }
+
+  document.getElementById('carousel-next')?.addEventListener('click', next);
+  document.getElementById('carousel-prev')?.addEventListener('click', prev);
+  track.parentElement.addEventListener('mouseenter', () => paused = true);
+  track.parentElement.addEventListener('mouseleave', () => paused = false);
+
+  render();
+  setInterval(() => { if (!paused) next(); }, 2500);
+
 })();
