@@ -30,6 +30,19 @@
 .page-link.secondary { color:#444; }
 .page-link.secondary:hover { color:var(--green); }
 
+/* ── SCREENSHOT GRID ── */
+.ss-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px; }
+.ss-card { padding:10px; cursor:pointer; }
+.ss-card img { width:100%; height:auto; border-radius:6px; border:1px solid var(--border); display:block; }
+.ss-name { font-size:11px; color:#444; letter-spacing:.08em; margin-top:8px; text-align:center; }
+
+/* ── LIGHTBOX ── */
+.lightbox { display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,.92); align-items:center; justify-content:center; padding:40px; cursor:zoom-out; }
+.lightbox.show { display:flex; }
+.lightbox-img { max-width:100%; max-height:90vh; border-radius:8px; border:1px solid #1a1a1a; box-shadow:0 20px 60px rgba(0,0,0,.8); }
+.lightbox-close { position:absolute; top:20px; right:28px; font-size:32px; color:#555; cursor:pointer; transition:color .2s; font-family:'IBM Plex Mono',monospace; line-height:1; }
+.lightbox-close:hover { color:var(--green); }
+
 @media(max-width:900px) {
   .inner-hero { padding:80px 24px 32px; }
   .page-content { padding:0 24px 60px; }
