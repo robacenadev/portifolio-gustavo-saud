@@ -4,6 +4,10 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gustavo Saud — Backend Dev & DevOps</title>
+  <meta name="description" content="Portfolio de Gustavo Saud — Backend Dev & DevOps. Django, Docker, AWS, Azure, monitoramento NOC. 2 sistemas em produção."/>
+  <meta property="og:title" content="Gustavo Saud — Backend Dev & DevOps"/>
+  <meta property="og:description" content="Analista NOC • Django • Docker • 2 sistemas em produção"/>
+  <meta property="og:type" content="website"/>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css"/>
   <link rel="stylesheet" href="css/style.css"/>
@@ -17,13 +21,15 @@
 
   <nav>
     <a href="#" class="logo"><span>~/</span>gustavo-saud</a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="#projects">projetos</a></li>
       <li><a href="#experience">experiência</a></li>
       <li><a href="#skills">skills</a></li>
       <li><a href="#contact">contato</a></li>
     </ul>
+    <button class="menu-btn" id="menu-btn" aria-label="Menu">☰</button>
   </nav>
+  <div class="menu-overlay" id="menu-overlay"></div>
 
   <!-- ══ HERO ══ -->
   <section id="hero">
@@ -275,7 +281,6 @@
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.16/typed.umd.js"></script>
-  <script src="js/background.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -19,6 +19,22 @@
     });
   })();
 
+  /* ── MOBILE MENU ── */
+  (function menu() {
+    const btn = document.getElementById('menu-btn');
+    const links = document.getElementById('nav-links');
+    const overlay = document.getElementById('menu-overlay');
+    if (!btn || !links || !overlay) return;
+    function close() { links.classList.remove('open'); overlay.classList.remove('show'); document.body.style.overflow = ''; }
+    btn.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      overlay.classList.toggle('show', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    overlay.addEventListener('click', close);
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  })();
+
   /* ── LIGHTBOX ── */
   (function lightbox() {
     const lb = document.getElementById('lightbox');
