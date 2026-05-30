@@ -27,10 +27,12 @@
   </div>
 
   <div class="page-content">
+
     <div class="page-sec reveal">
       <div class="page-sec-label">// sobre o projeto</div>
-      <p class="page-text">Sistema web de gestão interna completo, construído do zero para a Easy Drop, agência de marketing digital. Centraliza toda a operação da empresa em uma única plataforma — do primeiro contato com o cliente até a entrega final do projeto.</p>
+      <p class="page-text">Sistema web de gestão interna completo, construído do zero para a Easy Drop, agência de marketing digital. Centraliza toda a operação da empresa em uma única plataforma — do primeiro contato com o cliente até a entrega final do projeto. Substitui ferramentas dispersas por um CRM, ERP e task manager integrados, feitos sob medida para o fluxo da agência.</p>
     </div>
+
     <div class="page-sec reveal">
       <div class="page-sec-label">// screenshots</div>
       <div class="ss-grid">
@@ -44,29 +46,83 @@
         </div>
       </div>
     </div>
+
     <div class="page-sec reveal">
-      <div class="page-sec-label">// funcionalidades</div>
+      <div class="page-sec-label">// módulos</div>
+      <ul class="page-list">
+        <li><strong>Dashboard</strong> — KPIs em tempo real, gráfico financeiro (6 meses) e feed de atividade recente</li>
+        <li><strong>CRM · Clientes</strong> — ficha completa, histórico financeiro e link público de cadastro com anti-bot</li>
+        <li><strong>CRM · Pipeline</strong> — kanban de leads com drag & drop e múltiplos pipelines</li>
+        <li><strong>CRM · Serviços</strong> — catálogo com categorias e preços</li>
+        <li><strong>Tarefas</strong> — kanban com colunas configuráveis, prioridade, prazo e responsável</li>
+        <li><strong>Financeiro</strong> — receitas, despesas, recorrências e endpoint de resumo por período</li>
+        <li><strong>Orçamentos</strong> — wizard 4 etapas com link público de aprovação pelo cliente</li>
+        <li><strong>Briefings</strong> — formulários por serviço com endpoint público de resposta</li>
+        <li><strong>Arquivos</strong> — upload, pastas, storage stats e integração com Google Drive API</li>
+        <li><strong>Agenda</strong> — calendário com views dia/semana/mês e integração Google Calendar API</li>
+        <li><strong>Equipe</strong> — membros, permissões por nível e convites</li>
+        <li><strong>Configurações</strong> — perfil, notificações e 12 integrações externas</li>
+      </ul>
+    </div>
+
+    <div class="page-sec reveal">
+      <div class="page-sec-label">// funcionalidades em destaque</div>
       <ul class="page-list">
         <li>Funil de captação visual estilo Kanban — do lead ao cliente fechado</li>
         <li>Módulo financeiro com controle de receitas, despesas e recorrências</li>
         <li>Geração automática de contratos em PDF após aprovação de orçamento</li>
         <li>Integração com Google Calendar para agendamentos e reuniões</li>
-        <li>Cobranças automáticas via Asaas — PIX, boleto e cartão</li>
+        <li>Integração com Google Drive para gestão de arquivos em nuvem</li>
         <li>Portal do cliente para acompanhamento do projeto em tempo real</li>
-        <li>Notificações automáticas via WhatsApp integrado</li>
-        <li>Cadastro público com proteção anti-bot (honeypot)</li>
+        <li>Cadastro público com proteção anti-bot (honeypot + email único)</li>
+        <li>SPA hash-based com roteamento dinâmico em JavaScript vanilla</li>
+        <li>Badges dinâmicos na sidebar via contexto Django</li>
+        <li>Filtro de tarefas por usuário logado com toggle "ver todas" para staff</li>
+        <li>API consolidada de dashboard em uma única chamada</li>
       </ul>
     </div>
+
+    <div class="page-sec reveal">
+      <div class="page-sec-label">// infraestrutura & deploy</div>
+      <ul class="page-list">
+        <li>VPS Hostinger — Ubuntu 24.04 LTS · 2 vCPU · 8 GB RAM · 100 GB NVMe</li>
+        <li>Nginx como proxy reverso + servir arquivos estáticos</li>
+        <li>HTTPS com certificado Let's Encrypt (renovação automática via Certbot)</li>
+        <li>UFW + Fail2ban configurados para segurança do servidor</li>
+        <li>Docker Compose orquestrando Django + PostgreSQL</li>
+        <li>Domínio: <strong>ocean.easydropdigital.com.br</strong></li>
+      </ul>
+    </div>
+
+    <div class="page-sec reveal">
+      <div class="page-sec-label">// roadmap</div>
+      <ul class="page-list">
+        <li>✅ <strong>Fase 1</strong> — Fundação: Django 5.1 + PostgreSQL + Docker (Mar 2026)</li>
+        <li>✅ <strong>Fase 2</strong> — Núcleo CRM: clientes, serviços e pipeline (Mar 2026)</li>
+        <li>✅ <strong>Fase 3</strong> — Operação: tarefas, financeiro, orçamentos, briefings e arquivos (Mar 2026)</li>
+        <li>✅ <strong>Deploy VPS</strong> — Migração Railway → Hostinger com Nginx + SSL (Abr 2026)</li>
+        <li>✅ <strong>Fase 4</strong> — Website institucional com formulário integrado ao pipeline (Mai/Jun 2026)</li>
+        <li>✅ <strong>Fase 5 (parcial)</strong> — Google Drive API + Google Calendar API integrados</li>
+        <li>🔜 Asaas — cobranças automáticas, boletos e PIX</li>
+        <li>🔜 WhatsApp Business — notificações automáticas para clientes</li>
+        <li>🔜 Rate limiting com Redis + automações via Zapier</li>
+        <li>🔜 Portal do cliente + versão mobile</li>
+      </ul>
+    </div>
+
     <div class="page-sec reveal">
       <div class="page-sec-label">// stack técnico</div>
       <div class="page-stack">
         <span class="page-stag"><i class="devicon-django-plain colored"></i>Django 5.1</span>
+        <span class="page-stag">Django REST Framework 3.15</span>
         <span class="page-stag"><i class="devicon-postgresql-plain colored"></i>PostgreSQL 16</span>
-        <span class="page-stag"><i class="devicon-docker-plain colored"></i>Docker</span>
-        <span class="page-stag">Railway</span>
-        <span class="page-stag">Asaas API</span>
+        <span class="page-stag"><i class="devicon-docker-plain colored"></i>Docker + Compose</span>
+        <span class="page-stag"><i class="devicon-nginx-plain colored"></i>Nginx</span>
+        <span class="page-stag"><i class="devicon-javascript-plain colored"></i>JavaScript Vanilla (SPA)</span>
+        <span class="page-stag">Let's Encrypt / Certbot</span>
         <span class="page-stag"><i class="devicon-google-plain colored"></i>Google Calendar API</span>
-        <span class="page-stag"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+        <span class="page-stag"><i class="devicon-google-plain colored"></i>Google Drive API</span>
+        <span class="page-stag">Hostinger VPS</span>
       </div>
     </div>
 
@@ -77,6 +133,7 @@
         <a href="../index.html#projects" class="page-link secondary">← ver todos os projetos</a>
       </div>
     </div>
+
   </div>
 
   <div class="lightbox" id="lightbox">
