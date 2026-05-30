@@ -2,6 +2,18 @@
 (function () {
   'use strict';
 
+  /* ── CONTACT OBFUSCATION ── */
+  (function contact() {
+    const u = 'gusaud', d = 'hotmail.com';
+    const el = document.getElementById('email-link');
+    const ev = document.getElementById('email-val');
+    if (el && ev) { el.href = 'mailto:' + u + '@' + d; ev.textContent = u + '@' + d; }
+    const p = ['+','5','5','3','1','9','9','2','1','0','9','1','1','3'];
+    const pl = document.getElementById('phone-link');
+    const pv = document.getElementById('phone-val');
+    if (pl && pv) { pl.href = 'tel:' + p.join(''); pv.textContent = '(31) 99210-9113'; }
+  })();
+
   /* ── CURSOR ── */
   (function cursor() {
     const dot = document.getElementById('cdot');
