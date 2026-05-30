@@ -40,8 +40,8 @@
       ring.style.top = e.clientY + 'px';
     });
     document.querySelectorAll('a, button, .btn, .cb, .page-stag, .page-link').forEach(el => {
-      el.addEventListener('mouseenter', () => ring.classList.add('hover'));
-      el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+      el.addEventListener('mouseenter', () => dot.style.color = '#fff');
+      el.addEventListener('mouseleave', () => dot.style.color = '');
     });
   })();
 
